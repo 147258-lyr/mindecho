@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mindecho.controller.ReportController">
+    <left>
+        <VBox styleClass="sidebar" spacing="8">
+            <VBox spacing="2" styleClass="sidebar-header">
+                <Label styleClass="sidebar-title" text="MindEcho" />
+                <Label styleClass="sidebar-subtitle" text="智愈心海" />
+            </VBox>
+            <VBox spacing="6" styleClass="sidebar-section">
+                <Label styleClass="sidebar-section-title" text="导航" />
+                <Button onAction="#goToMain" styleClass="nav-item" text=" 主页" />
+                <Button onAction="#goToScratch" styleClass="nav-item" text="💊 情绪胶囊" />
+                <Button disable="true" styleClass="nav-item nav-item-active" text=" 情绪报告" />
+                <Button onAction="#goToTrash" styleClass="nav-item" text=" 情绪文章" />
+                <Button onAction="#goToSettings" styleClass="nav-item" text="⚙ 设置" />
+            </VBox>
+        </VBox>
+    </left>
+    <center>
+        <ScrollPane fitToWidth="true" pannable="true" styleClass="content-scroll">
+            <content>
+                <VBox styleClass="content-area" spacing="16">
+                    <VBox alignment="CENTER" spacing="10">
+                        <Label styleClass="page-icon" text="📊" />
+                        <Label fx:id="monthLabel" styleClass="page-title" text="月度情绪报告" />
+                        <Label styleClass="page-subtitle" text="把情绪变成数据，也把数据变成方向" />
+                    </VBox>
+
+                    <VBox fx:id="emptyState" alignment="CENTER" spacing="15" styleClass="empty-state">
+                        <Label styleClass="empty-icon" text="📅" />
+                        <Label styleClass="empty-title" text="本月暂无数据" />
+                        <Label styleClass="empty-desc" text="开始倾诉，记录你的心情变化" />
+                    </VBox>
+
+                    <VBox fx:id="aiSummaryBox" spacing="10" styleClass="report-section">
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label styleClass="section-icon" text="🤖" />
+                            <Label styleClass="section-title" text="AI 情绪分析" />
+                        </HBox>
+                        <Label fx:id="aiSummaryLabel" styleClass="ai-summary-text" wrapText="true" />
+                    </VBox>
+
+                    <HBox spacing="16" styleClass="report-section-row">
+                        <VBox fx:id="emotionPieChartBox" spacing="10" styleClass="report-section-chart">
+                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                <Label styleClass="section-icon" text="🎭" />
+                                <Label styleClass="section-title" text="情绪分布" />
+                            </HBox>
+                            <AnchorPane fx:id="pieChartContainer" prefHeight="220" />
+                        </VBox>
+
+                        <VBox fx:id="stylePieChartBox" spacing="10" styleClass="report-section-chart">
+                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                <Label styleClass="section-icon" text="✨" />
+                                <Label styleClass="section-title" text="AI 风格分布" />
+                            </HBox>
+                            <AnchorPane fx:id="stylePieChartContainer" prefHeight="220" />
+                        </VBox>
+                    </HBox>
+
+                    <VBox spacing="10" styleClass="report-section">
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label styleClass="section-icon" text="📈" />
+                            <Label styleClass="section-title" text="每日情绪趋势" />
+                        </HBox>
+                        <AnchorPane fx:id="dailyChartContainer" prefHeight="280" />
+                    </VBox>
+
+                    <VBox spacing="10" styleClass="report-section">
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label styleClass="section-icon" text="📆" />
+                            <Label styleClass="section-title" text="每周倾诉频率" />
+                        </HBox>
+                        <AnchorPane fx:id="weeklyChartContainer" prefHeight="200" />
+                    </VBox>
+
+                    <VBox spacing="10" styleClass="report-section">
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label styleClass="section-icon" text="🏆" />
+                            <Label styleClass="section-title" text="情绪标签排名" />
+                        </HBox>
+                        <VBox fx:id="emotionRankingBox" spacing="8" styleClass="report-content" />
+                    </VBox>
+
+                    <VBox spacing="10" styleClass="report-section">
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label styleClass="section-icon" text="💡" />
+                            <Label styleClass="section-title" text="调节建议" />
+                        </HBox>
+                        <VBox fx:id="suggestionsBox" spacing="10" styleClass="report-content" />
+                    </VBox>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+</BorderPane>

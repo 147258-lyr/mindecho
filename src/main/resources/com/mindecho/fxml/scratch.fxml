@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mindecho.controller.ScratchController">
+    <left>
+        <VBox styleClass="sidebar" spacing="8">
+            <VBox spacing="2" styleClass="sidebar-header">
+                <Label styleClass="sidebar-title" text="MindEcho" />
+                <Label styleClass="sidebar-subtitle" text="智愈心海" />
+            </VBox>
+            <VBox spacing="6" styleClass="sidebar-section">
+                <Label styleClass="sidebar-section-title" text="导航" />
+                <Button onAction="#goToMain" styleClass="nav-item" text="🏠 主页" />
+                <Button disable="true" styleClass="nav-item nav-item-active" text="💊 情绪胶囊" />
+                <Button onAction="#goToReport" styleClass="nav-item" text="📊 情绪报告" />
+                <Button onAction="#goToTrash" styleClass="nav-item" text="📚 情绪文章" />
+                <Button onAction="#goToSettings" styleClass="nav-item" text="⚙ 设置" />
+            </VBox>
+        </VBox>
+    </left>
+    <center>
+        <ScrollPane fx:id="contentScrollPane" fitToWidth="true" pannable="true" styleClass="content-scroll">
+            <content>
+                <VBox styleClass="content-area" spacing="20">
+                    <VBox alignment="CENTER" spacing="10">
+                        <Label styleClass="page-icon" text="💊" />
+                        <Label styleClass="page-title" text="AI情绪胶囊" />
+                        <Label styleClass="page-subtitle" text="封存烦恼，等待时间的答案" />
+                    </VBox>
+
+                    <VBox styleClass="main-card" spacing="16">
+                        <Label styleClass="card-title" text="今天想封存什么？" />
+                        <TextArea fx:id="contentArea" styleClass="input-area" promptText="写下你此刻的烦恼或心事..." wrapText="true" />
+                        
+                        <VBox spacing="8">
+                            <Label styleClass="card-title" text="开启时间" />
+                            <HBox spacing="16" alignment="CENTER_LEFT">
+                                <RadioButton fx:id="radio3Days" styleClass="radio-button" text="3天" />
+                                <RadioButton fx:id="radio7Days" styleClass="radio-button" text="7天" />
+                                <RadioButton fx:id="radio30Days" styleClass="radio-button" text="30天" />
+                            </HBox>
+                        </VBox>
+                        
+                        <Button fx:id="sealButton" onAction="#sealCapsule" styleClass="primary-button" text="封存胶囊" />
+                    </VBox>
+
+                    <VBox spacing="12">
+                        <Label styleClass="card-title" text="📦 我的胶囊" />
+                        
+                        <VBox fx:id="emptyState" alignment="CENTER" spacing="15" styleClass="empty-state">
+                            <Label styleClass="empty-icon" text="💊" />
+                            <Label styleClass="empty-title" text="还没有胶囊" />
+                            <Label styleClass="empty-desc" text="写下烦恼，封存一颗属于你的情绪胶囊吧" />
+                        </VBox>
+
+                        <VBox fx:id="capsuleList" spacing="10" />
+                    </VBox>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+
+    <fx:define>
+        <ToggleGroup fx:id="openTimeGroup" />
+    </fx:define>
+</BorderPane>

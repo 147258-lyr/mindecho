@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mindecho.controller.SettingsController">
+    <left>
+        <VBox styleClass="sidebar" spacing="8">
+            <VBox spacing="2" styleClass="sidebar-header">
+                <Label styleClass="sidebar-title" text="MindEcho" />
+                <Label styleClass="sidebar-subtitle" text="智愈心海" />
+            </VBox>
+            <VBox spacing="6" styleClass="sidebar-section">
+                <Label styleClass="sidebar-section-title" text="导航" />
+                <Button onAction="#goToMain" styleClass="nav-item" text="🏠 主页" />
+                <Button onAction="#goToScratch" styleClass="nav-item" text="💊 情绪胶囊" />
+                <Button onAction="#goToReport" styleClass="nav-item" text="📊 情绪报告" />
+                <Button onAction="#goToTrash" styleClass="nav-item" text="📚 情绪文章" />
+                <Button disable="true" styleClass="nav-item nav-item-active" text="⚙ 设置" />
+            </VBox>
+        </VBox>
+    </left>
+    <center>
+        <ScrollPane fitToWidth="true" pannable="true" styleClass="content-scroll">
+            <content>
+                <VBox styleClass="content-area" spacing="16">
+                    <VBox alignment="CENTER" spacing="10">
+                        <Label styleClass="page-icon" text="⚙" />
+                        <Label styleClass="page-title" text="设置" />
+                        <Label styleClass="page-subtitle" text="主题、API、声音都在这里掌控" />
+                    </VBox>
+
+                    <VBox spacing="10" styleClass="settings-section">
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label styleClass="section-icon" text="✶" />
+                            <Label styleClass="setting-label" text="API 配置" />
+                        </HBox>
+                        <Label styleClass="setting-label" text="API 地址 (Base URL)" />
+                        <TextField fx:id="apiBaseUrlField" promptText="https://api.openai.com/v1/chat/completions" styleClass="text-field" />
+                        <Label styleClass="setting-label" text="API 密钥" />
+                        <TextField fx:id="apiKeyField" promptText="sk-..." styleClass="text-field" />
+                        <Button onAction="#saveSettings" styleClass="primary-button" text="保存设置" />
+                    </VBox>
+
+                    <VBox spacing="10" styleClass="settings-section">
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label styleClass="section-icon" text="▲" />
+                            <Label styleClass="setting-label" text="主题设置" />
+                        </HBox>
+                        <HBox spacing="15" alignment="CENTER_LEFT">
+                            <RadioButton fx:id="lightThemeRadio" onAction="#handleThemeChange" selected="true" styleClass="radio-button" text="浅色主题" />
+                            <RadioButton fx:id="darkThemeRadio" onAction="#handleThemeChange" styleClass="radio-button" text="深色主题" />
+                        </HBox>
+                    </VBox>
+
+                    <VBox spacing="10" styleClass="settings-section">
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label styleClass="section-icon" text="♪" />
+                            <Label styleClass="setting-label" text="背景音效" />
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="15">
+                            <CheckBox fx:id="audioEnabledCheck" onAction="#handleAudioToggle" styleClass="check-box" text="开启音效" />
+                            <Label fx:id="audioStatusLabel" text="♪ 已开启" />
+                        </HBox>
+                    </VBox>
+
+                    <VBox spacing="10" styleClass="danger-section">
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label styleClass="danger-icon" text="⚠" />
+                            <Label styleClass="setting-label" text="危险区域" />
+                        </HBox>
+                        <Button onAction="#handleDeleteAll" styleClass="danger-button" text="销毁全部数据" />
+                    </VBox>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+</BorderPane>

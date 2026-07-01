@@ -1,0 +1,1021 @@
+/* ============================================================
+   MindEcho 「夜海」深色主题
+   设计语言：深夜的海，情绪在这里被看见、被释放
+   ============================================================ */
+
+.root {
+  /* 色彩变量（JavaFX 查找色，可在任意 -fx- 属性中直接引用） */
+  -bg-deep: #0A1620;
+  -bg-panel: #122633;
+  -bg-panel-alt: #0E202B;
+  -bg-glow-a: rgba(59, 130, 246, 0.18);
+  -bg-glow-b: rgba(248, 113, 113, 0.16);
+  -bg-glow-c: rgba(45, 212, 191, 0.18);
+  -accent-teal: #2DD4BF;
+  -accent-teal-dim: #14B8A6;
+  -accent-coral: #F87171;
+  -accent-lavender: #A78BFA;
+  -accent-gold: #FBBF24;
+  -accent-rose: #F472B6;
+  -text-primary: #E0E7E9;
+  -text-secondary: #7A8F94;
+  -text-tertiary: #57696E;
+  -border-soft: rgba(255,255,255,0.08);
+  -border-strong: rgba(255,255,255,0.14);
+  -danger: #EF4444;
+
+  -fx-font-family: 'HarmonyOS Sans SC', 'MiSans', 'PingFang SC', 'Microsoft YaHei UI', 'Microsoft YaHei', sans-serif;
+  -fx-background-color: linear-gradient(to bottom right, #071320 0%, #0C1A2E 42%, #161528 72%, #0F1020 100%);
+}
+
+.label {
+  -fx-text-fill: -text-primary;
+}
+
+/* ---------- 应用外壳 ---------- */
+.app-shell {
+  -fx-background-color: -bg-deep;
+}
+
+.titlebar {
+  -fx-background-color: -bg-panel;
+  -fx-padding: 8 16;
+  -fx-border-color: transparent transparent -border-soft transparent;
+  -fx-border-width: 0 0 1 0;
+}
+.titlebar-title {
+  -fx-text-fill: -text-primary;
+  -fx-font-size: 13px;
+  -fx-font-weight: 500;
+}
+.titlebar-version {
+  -fx-text-fill: -text-tertiary;
+  -fx-font-family: 'Cascadia Mono', 'JetBrains Mono', 'Consolas', monospace;
+  -fx-font-size: 11px;
+}
+
+/* ---------- 侧边导航 ---------- */
+.sidebar {
+  -fx-background-color: rgba(18,36,44,0.78);
+  -fx-background-radius: 26;
+  -fx-padding: 18 14;
+  -fx-spacing: 10;
+  -fx-pref-width: 210;
+  -fx-border-color: rgba(182,166,224,0.14);
+  -fx-border-width: 1;
+  -fx-border-radius: 26;
+  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.38), 28, 0.26, 0, 12);
+}
+.sidebar-header {
+  -fx-padding: 6 8 10 8;
+}
+.sidebar-title {
+  -fx-text-fill: -text-primary;
+  -fx-font-size: 16px;
+  -fx-font-weight: 800;
+  -fx-letter-spacing: 0.4px;
+}
+.sidebar-subtitle {
+  -fx-text-fill: -text-secondary;
+  -fx-font-size: 12px;
+  -fx-font-weight: 600;
+}
+.sidebar-section-title {
+  -fx-text-fill: -text-tertiary;
+  -fx-font-size: 11px;
+  -fx-font-family: 'Cascadia Mono', 'JetBrains Mono', 'Consolas', monospace;
+  -fx-padding: 8 8 4 8;
+}
+.nav-item {
+  -fx-background-color: transparent;
+  -fx-text-fill: -text-secondary;
+  -fx-font-size: 13px;
+  -fx-font-weight: 600;
+  -fx-padding: 10 12;
+  -fx-background-radius: 14;
+  -fx-cursor: hand;
+  -fx-alignment: center-left;
+  -fx-graphic-text-gap: 8;
+}
+.nav-item:hover {
+  -fx-background-color: rgba(182,166,224,0.10);
+  -fx-text-fill: -text-primary;
+  -fx-translate-y: -1;
+}
+.nav-item-active {
+  -fx-background-color: linear-gradient(to right, rgba(108,128,255,0.22), rgba(255,117,181,0.16));
+  -fx-text-fill: -text-primary;
+  -fx-effect: dropshadow(three-pass-box, rgba(108,128,255,0.18), 14, 0.22, 0, 6);
+}
+
+/* ---------- 主内容区 ---------- */
+.content-area {
+  -fx-background-color: transparent;
+  -fx-padding: 26 28 26 28;
+}
+
+.content-scroll {
+  -fx-background-color: transparent;
+  -fx-padding: 18;
+}
+.content-scroll .viewport {
+  -fx-background-color: transparent;
+}
+.content-scroll .scroll-bar:vertical,
+.content-scroll .scroll-bar:horizontal {
+  -fx-background-color: transparent;
+}
+.page-title {
+  -fx-text-fill: -text-primary;
+  -fx-font-size: 24px;
+  -fx-font-weight: 800;
+  -fx-letter-spacing: 0.35px;
+}
+.slogan-text {
+  -fx-font-family: 'Songti SC', 'STSong', 'SimSun', 'Noto Serif SC', serif;
+  -fx-text-fill: -text-tertiary;
+  -fx-font-style: italic;
+  -fx-font-size: 13px;
+}
+
+/* ---------- 情绪天气条 ---------- */
+.mood-weather-bar {
+  -fx-spacing: 8;
+  -fx-alignment: center-left;
+  -fx-padding: 0 0 12 0;
+}
+.mood-weather-icon {
+  -fx-font-size: 16px;
+  -fx-text-fill: -accent-lavender;
+}
+.mood-weather-text {
+  -fx-text-fill: -text-secondary;
+  -fx-font-size: 13px;
+}
+.mood-weather-breakdown {
+  -fx-text-fill: -text-tertiary;
+  -fx-font-size: 11px;
+}
+
+/* ---------- 输入控件 ---------- */
+.shred-textarea, .text-area {
+  -fx-background-color: -bg-panel-alt;
+  -fx-text-fill: -text-primary;
+  -fx-prompt-text-fill: -text-tertiary;
+  -fx-background-radius: 8;
+  -fx-font-size: 14px;
+}
+.shred-textarea .content, .text-area .content {
+  -fx-background-color: -bg-panel-alt;
+  -fx-background-radius: 8;
+}
+.char-count-label {
+  -fx-text-fill: -text-tertiary;
+  -fx-font-size: 11px;
+  -fx-font-family: 'Cascadia Mono', 'JetBrains Mono', 'Consolas', monospace;
+}
+.hint-text {
+  -fx-text-fill: -text-tertiary;
+  -fx-font-size: 11px;
+}
+
+/* ---------- 按钮 ---------- */
+.btn-primary {
+  -fx-background-color: -accent-teal;
+  -fx-text-fill: -bg-deep;
+  -fx-font-size: 13px;
+  -fx-font-weight: 500;
+  -fx-background-radius: 999;
+  -fx-padding: 8 22;
+  -fx-cursor: hand;
+}
+.btn-primary:hover { -fx-background-color: -accent-teal-dim; }
+.btn-primary:pressed { -fx-opacity: 0.85; }
+
+.btn-ghost {
+  -fx-background-color: transparent;
+  -fx-text-fill: -text-secondary;
+  -fx-border-color: -border-strong;
+  -fx-border-radius: 999;
+  -fx-background-radius: 999;
+  -fx-padding: 7 16;
+  -fx-cursor: hand;
+}
+.btn-ghost:hover { -fx-background-color: -bg-panel-alt; }
+
+.btn-danger {
+  -fx-background-color: transparent;
+  -fx-text-fill: -danger;
+  -fx-border-color: -danger;
+  -fx-border-radius: 999;
+  -fx-background-radius: 999;
+  -fx-padding: 7 16;
+  -fx-cursor: hand;
+}
+.btn-danger:hover { -fx-background-color: rgba(255,107,107,0.12); }
+
+/* ---------- 回应卡片 / 徽标 ---------- */
+.response-card {
+  -fx-background-color: -bg-panel;
+  -fx-background-radius: 12;
+  -fx-padding: 12 14;
+  -fx-spacing: 6;
+}
+.badge {
+  -fx-padding: 2 8;
+  -fx-background-radius: 8;
+  -fx-font-size: 11px;
+}
+.badge-heal { -fx-background-color: rgba(79,214,190,0.16); -fx-text-fill: -accent-teal; }
+.badge-sharp { -fx-background-color: rgba(255,130,102,0.16); -fx-text-fill: -accent-coral; }
+.timestamp-text {
+  -fx-text-fill: -text-tertiary;
+  -fx-font-family: 'Cascadia Mono', 'JetBrains Mono', 'Consolas', monospace;
+  -fx-font-size: 11px;
+}
+.response-text {
+  -fx-text-fill: -text-primary;
+  -fx-font-size: 14px;
+}
+
+/* ---------- 通用卡片 / 指标 ---------- */
+.card {
+  -fx-background-color: -bg-panel;
+  -fx-background-radius: 12;
+  -fx-padding: 16;
+}
+.metric-card {
+  -fx-background-color: -bg-panel-alt;
+  -fx-background-radius: 8;
+  -fx-padding: 12;
+  -fx-spacing: 4;
+}
+.metric-label { -fx-text-fill: -text-secondary; -fx-font-size: 12px; }
+.metric-value {
+  -fx-text-fill: -text-primary;
+  -fx-font-family: 'Cascadia Mono', 'JetBrains Mono', 'Consolas', monospace;
+  -fx-font-size: 22px;
+  -fx-font-weight: 500;
+}
+
+/* ---------- 刮刮乐 ---------- */
+.scratch-card-container {
+  -fx-background-color: -bg-panel-alt;
+  -fx-background-radius: 12;
+}
+.scratch-reveal-date {
+  -fx-text-fill: -text-tertiary;
+  -fx-font-family: 'Cascadia Mono', 'JetBrains Mono', 'Consolas', monospace;
+  -fx-font-size: 11px;
+}
+.scratch-reveal-text {
+  -fx-text-fill: -text-primary;
+  -fx-font-size: 13px;
+}
+.scratch-remain-label {
+  -fx-text-fill: -text-primary;
+  -fx-font-family: 'Cascadia Mono', 'JetBrains Mono', 'Consolas', monospace;
+  -fx-font-size: 14px;
+  -fx-font-weight: 500;
+}
+
+/* ---------- 图表（月度报告） ---------- */
+.chart { -fx-background-color: transparent; }
+.chart-plot-background { -fx-background-color: transparent; }
+.chart-vertical-grid-lines, .chart-horizontal-grid-lines { -fx-stroke: -border-soft; }
+.chart-vertical-zero-line, .chart-horizontal-zero-line { -fx-stroke: -border-strong; }
+.axis { -fx-tick-label-fill: -text-tertiary; -fx-font-size: 11px; }
+.default-color0.chart-series-line { -fx-stroke: -accent-teal; -fx-stroke-width: 2px; }
+.default-color0.chart-line-symbol { -fx-background-color: -accent-teal, white; }
+.default-color0.chart-pie { -fx-pie-color: -accent-teal; }
+.default-color1.chart-pie { -fx-pie-color: -accent-coral; }
+.chart-pie-label { -fx-fill: -text-secondary; -fx-font-size: 11px; }
+.tag-bar-track { -fx-background-color: -bg-panel-alt; -fx-background-radius: 999; }
+.tag-bar-fill { -fx-background-color: -text-tertiary; -fx-background-radius: 999; }
+.tag-bar-fill-top { -fx-background-color: -accent-coral; -fx-background-radius: 999; }
+
+/* ---------- 设置页 ---------- */
+.settings-row {
+  -fx-padding: 10 0;
+  -fx-spacing: 12;
+  -fx-alignment: center-left;
+  -fx-border-color: transparent transparent -border-soft transparent;
+  -fx-border-width: 0 0 1 0;
+}
+.settings-label { -fx-text-fill: -text-primary; -fx-font-size: 13px; }
+.settings-mono {
+  -fx-text-fill: -text-secondary;
+  -fx-font-family: 'Cascadia Mono', 'JetBrains Mono', 'Consolas', monospace;
+  -fx-font-size: 12px;
+}
+
+/* ---------- 模态弹窗 ---------- */
+.modal-overlay { -fx-background-color: rgba(0,0,0,0.5); }
+.modal-card {
+  -fx-background-color: -bg-panel;
+  -fx-background-radius: 12;
+  -fx-padding: 20;
+  -fx-spacing: 12;
+}
+.modal-title { -fx-text-fill: -text-primary; -fx-font-size: 14px; -fx-font-weight: 500; }
+.modal-desc { -fx-text-fill: -text-secondary; -fx-font-size: 12px; }
+
+/* ---------- 无痕模式 ---------- */
+.trash-note-text { -fx-text-fill: -text-tertiary; -fx-font-size: 12px; }
+
+/* ---------- 新增：返回按钮 ---------- */
+.back-button {
+  -fx-background-color: rgba(19,33,44,0.84);
+  -fx-text-fill: -text-primary;
+  -fx-font-size: 14px;
+  -fx-font-weight: 500;
+  -fx-padding: 10 16;
+  -fx-background-radius: 999;
+  -fx-border-color: rgba(182,166,224,0.18);
+  -fx-border-radius: 999;
+  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.34), 18, 0.24, 0, 8);
+  -fx-cursor: hand;
+  -fx-alignment: center-left;
+}
+.back-button:hover {
+  -fx-background-color: linear-gradient(to right, rgba(23,44,59,0.96), rgba(37,30,58,0.96));
+  -fx-translate-y: -1;
+  -fx-effect: dropshadow(three-pass-box, rgba(108,128,255,0.18), 22, 0.28, 0, 10);
+}
+
+/* ---------- 页面图标和标题 ---------- */
+.page-icon {
+  -fx-font-size: 48px;
+  -fx-effect: dropshadow(three-pass-box, rgba(182,166,224,0.30), 18, 0.3, 0, 8);
+}
+.page-title {
+  -fx-text-fill: -text-primary;
+  -fx-font-size: 24px;
+  -fx-font-weight: 800;
+  -fx-letter-spacing: 0.35px;
+}
+.page-subtitle {
+  -fx-text-fill: -text-secondary;
+  -fx-font-size: 14px;
+}
+
+/* ---------- 天气卡片 ---------- */
+.weather-card {
+  -fx-background-color: linear-gradient(to bottom right, rgba(23,53,68,0.96) 0%, rgba(42,31,46,0.96) 58%, rgba(50,33,63,0.98) 100%);
+  -fx-background-radius: 24;
+  -fx-padding: 22 24 22 24;
+  -fx-border-color: rgba(182,166,224,0.14);
+  -fx-border-width: 1;
+  -fx-border-radius: 24;
+  -fx-effect: dropshadow(three-pass-box, rgba(88,116,255,0.18), 28, 0.24, 0, 10);
+}
+.weather-icon {
+  -fx-font-size: 42px;
+  -fx-effect: dropshadow(three-pass-box, rgba(255,200,87,0.34), 20, 0.3, 0, 7);
+}
+.weather-title {
+  -fx-text-fill: -text-primary;
+  -fx-font-size: 17px;
+  -fx-font-weight: 600;
+}
+.weather-desc {
+  -fx-text-fill: -text-secondary;
+  -fx-font-size: 13px;
+}
+
+/* ---------- 主卡片 ---------- */
+.main-card,
+.trash-card {
+  -fx-background-color: linear-gradient(to bottom right, rgba(18,36,44,0.96), rgba(22,48,58,0.92));
+  -fx-background-radius: 22;
+  -fx-padding: 22;
+  -fx-border-color: rgba(182,166,224,0.12);
+  -fx-border-radius: 22;
+  -fx-border-width: 1;
+  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.34), 24, 0.22, 0, 10);
+}
+
+/* ---------- 卡片图标和标题 ---------- */
+.card-icon {
+  -fx-font-size: 26px;
+}
+.card-title {
+  -fx-text-fill: -text-primary;
+  -fx-font-size: 17px;
+  -fx-font-weight: 600;
+}
+
+/* ---------- 输入框 ---------- */
+.input-area {
+  -fx-background-color: linear-gradient(to bottom, rgba(22,48,58,0.96), rgba(17,36,44,0.98));
+  -fx-background-radius: 18;
+  -fx-border-color: rgba(182,166,224,0.14);
+  -fx-border-radius: 18;
+  -fx-border-width: 1;
+  -fx-text-fill: -text-primary;
+  -fx-prompt-text-fill: -text-tertiary;
+  -fx-font-size: 14px;
+  -fx-padding: 14;
+  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.18), 14, 0.14, 0, 4);
+}
+.input-area:focused {
+  -fx-border-color: -accent-lavender;
+  -fx-background-color: linear-gradient(to bottom, rgba(24,43,57,0.98), rgba(18,36,44,0.98));
+  -fx-effect: dropshadow(three-pass-box, rgba(108,128,255,0.18), 20, 0.24, 0, 8);
+}
+
+/* ---------- 按钮样式 ---------- */
+.primary-button {
+  -fx-background-color: linear-gradient(to bottom right, #6f8cff 0%, #8c63ff 52%, #e06cf7 100%);
+  -fx-text-fill: white;
+  -fx-font-size: 15px;
+  -fx-font-weight: 700;
+  -fx-padding: 13 26;
+  -fx-background-radius: 16;
+  -fx-cursor: hand;
+  -fx-effect: dropshadow(three-pass-box, rgba(108,128,255,0.34), 24, 0.28, 0, 10);
+}
+.primary-button:hover {
+  -fx-translate-y: -2;
+  -fx-scale-x: 1.01;
+  -fx-scale-y: 1.01;
+  -fx-effect: dropshadow(three-pass-box, rgba(108,128,255,0.46), 30, 0.34, 0, 12);
+}
+.secondary-button {
+  -fx-background-color: -bg-panel-alt;
+  -fx-text-fill: -text-primary;
+  -fx-font-size: 14px;
+  -fx-padding: 10 20;
+  -fx-background-radius: 10;
+  -fx-cursor: hand;
+}
+.secondary-button:hover {
+  -fx-background-color: -border-soft;
+}
+.danger-button {
+  -fx-background-color: linear-gradient(to bottom right, #ff7ec7 0%, #ff6d97 42%, #ff8e5f 100%);
+  -fx-text-fill: white;
+  -fx-font-size: 14px;
+  -fx-font-weight: 700;
+  -fx-padding: 11 22;
+  -fx-background-radius: 14;
+  -fx-cursor: hand;
+  -fx-effect: dropshadow(three-pass-box, rgba(255,117,181,0.24), 22, 0.24, 0, 8);
+}
+.danger-button:hover {
+  -fx-translate-y: -2;
+  -fx-effect: dropshadow(three-pass-box, rgba(255,117,181,0.38), 28, 0.3, 0, 10);
+}
+
+/* ---------- 配额卡片 ---------- */
+.quota-card {
+  -fx-background-color: linear-gradient(to bottom right, #4b6fff 0%, #7b61ff 44%, #cc6dff 78%, #ff8bb4 100%);
+  -fx-background-radius: 20;
+  -fx-padding: 18 20 18 20;
+  -fx-effect: dropshadow(three-pass-box, rgba(108,128,255,0.30), 26, 0.28, 0, 10);
+}
+.quota-icon {
+  -fx-font-size: 32px;
+}
+.quota-text {
+  -fx-text-fill: white;
+  -fx-font-size: 14px;
+}
+.quota-number {
+  -fx-text-fill: white;
+  -fx-font-size: 24px;
+  -fx-font-weight: 600;
+  -fx-font-family: 'Cascadia Mono', 'JetBrains Mono', 'Consolas', monospace;
+}
+.quota-value {
+  -fx-text-fill: white;
+  -fx-font-size: 14px;
+  -fx-font-weight: 700;
+  -fx-background-color: rgba(255,255,255,0.12);
+  -fx-background-radius: 999;
+  -fx-padding: 7 12;
+}
+
+/* ---------- 空状态 ---------- */
+.empty-state {
+  -fx-padding: 34 24;
+  -fx-background-color: linear-gradient(to bottom right, rgba(18,36,44,0.92), rgba(27,33,49,0.88));
+  -fx-background-radius: 20;
+  -fx-border-color: rgba(182,166,224,0.12);
+  -fx-border-radius: 20;
+  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.26), 18, 0.2, 0, 8);
+}
+.empty-icon {
+  -fx-font-size: 48px;
+  -fx-text-fill: -accent-lavender;
+}
+.empty-title {
+  -fx-text-fill: -text-primary;
+  -fx-font-size: 16px;
+  -fx-font-weight: 500;
+}
+.empty-desc {
+  -fx-text-fill: -text-secondary;
+  -fx-font-size: 13px;
+}
+
+/* ---------- 内容卡片 ---------- */
+.content-card {
+  -fx-background-color: linear-gradient(to bottom right, rgba(18,36,44,0.96), rgba(24,43,57,0.92));
+  -fx-background-radius: 20;
+  -fx-padding: 18;
+  -fx-border-color: rgba(182,166,224,0.12);
+  -fx-border-radius: 20;
+  -fx-border-width: 1;
+  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.26), 20, 0.2, 0, 8);
+}
+.scratch-content {
+  -fx-text-fill: -text-primary;
+  -fx-font-size: 15px;
+  -fx-line-spacing: 4px;
+  -fx-wrap-text: true;
+}
+.date-label {
+  -fx-text-fill: -text-tertiary;
+  -fx-font-size: 12px;
+  -fx-font-family: 'Cascadia Mono', 'JetBrains Mono', 'Consolas', monospace;
+}
+
+/* ---------- 确认标签 ---------- */
+.confirm-label {
+  -fx-text-fill: -accent-teal;
+  -fx-font-size: 16px;
+  -fx-font-weight: 700;
+}
+
+/* ---------- 报告部分 ---------- */
+.report-section {
+  -fx-background-color: linear-gradient(to bottom right, rgba(18,38,51,0.96), rgba(22,46,62,0.92));
+  -fx-background-radius: 18;
+  -fx-padding: 16;
+  -fx-border-color: rgba(167,139,250,0.12);
+  -fx-border-radius: 18;
+  -fx-border-width: 1;
+  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.28), 18, 0.18, 0, 8);
+}
+.report-section-row {
+  -fx-spacing: 16;
+}
+.report-section-chart {
+  -fx-background-color: linear-gradient(to bottom right, rgba(18,38,51,0.96), rgba(22,46,62,0.92));
+  -fx-background-radius: 18;
+  -fx-padding: 16;
+  -fx-border-color: rgba(167,139,250,0.12);
+  -fx-border-radius: 18;
+  -fx-border-width: 1;
+  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.28), 18, 0.18, 0, 8);
+  -fx-hgrow: always;
+}
+.section-icon {
+  -fx-font-size: 20px;
+}
+.section-title {
+  -fx-text-fill: -text-primary;
+  -fx-font-size: 15px;
+  -fx-font-weight: 500;
+}
+.report-content {
+  -fx-spacing: 6;
+}
+.ranking-item-box {
+  -fx-spacing: 10;
+  -fx-alignment: center-left;
+  -fx-padding: 6 0;
+}
+.ranking-number {
+  -fx-text-fill: -text-tertiary;
+  -fx-font-size: 13px;
+  -fx-font-weight: 600;
+  -fx-min-width: 24px;
+}
+.ranking-emotion {
+  -fx-text-fill: -text-primary;
+  -fx-font-size: 14px;
+  -fx-font-weight: 500;
+  -fx-min-width: 60px;
+}
+.ranking-count {
+  -fx-text-fill: -text-secondary;
+  -fx-font-size: 13px;
+  -fx-font-weight: 500;
+}
+.ranking-progress {
+  -fx-hgrow: always;
+  -fx-pref-height: 8px;
+}
+.ranking-progress .track {
+  -fx-background-color: rgba(255,255,255,0.08);
+  -fx-background-radius: 4;
+}
+.ranking-progress .bar {
+  -fx-background-color: linear-gradient(to right, #a78bfa, #818cf8);
+  -fx-background-radius: 4;
+}
+.suggestion-item {
+  -fx-text-fill: -text-secondary;
+  -fx-font-size: 13px;
+  -fx-padding: 8 0;
+}
+.ai-summary-text {
+  -fx-text-fill: -text-primary;
+  -fx-font-size: 14px;
+  -fx-line-spacing: 4px;
+  -fx-font-style: italic;
+}
+
+/* ---------- 设置部分 ---------- */
+.settings-section {
+  -fx-background-color: linear-gradient(to bottom right, rgba(18,36,44,0.96), rgba(22,48,58,0.92));
+  -fx-background-radius: 18;
+  -fx-padding: 16;
+  -fx-border-color: rgba(182,166,224,0.12);
+  -fx-border-radius: 18;
+  -fx-border-width: 1;
+  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.28), 18, 0.18, 0, 8);
+}
+.setting-label {
+  -fx-text-fill: -text-primary;
+  -fx-font-size: 14px;
+}
+.text-field {
+  -fx-background-color: linear-gradient(to bottom, rgba(22,48,58,0.96), rgba(17,36,44,0.98));
+  -fx-background-radius: 12;
+  -fx-border-color: rgba(182,166,224,0.14);
+  -fx-border-radius: 12;
+  -fx-border-width: 1;
+  -fx-text-fill: -text-primary;
+  -fx-prompt-text-fill: -text-tertiary;
+  -fx-font-size: 14px;
+  -fx-padding: 10;
+}
+.text-field:focused {
+  -fx-border-color: -accent-lavender;
+  -fx-background-color: linear-gradient(to bottom, rgba(24,43,57,0.98), rgba(18,36,44,0.98));
+  -fx-effect: dropshadow(three-pass-box, rgba(108,128,255,0.18), 18, 0.24, 0, 8);
+}
+.radio-button, .check-box {
+  -fx-text-fill: -text-primary;
+  -fx-font-size: 14px;
+}
+.danger-section {
+  -fx-background-color: linear-gradient(to bottom right, rgba(42,31,46,0.92), rgba(55,28,43,0.88));
+  -fx-background-radius: 18;
+  -fx-padding: 16;
+  -fx-border-color: rgba(255,117,181,0.18);
+  -fx-border-radius: 18;
+  -fx-border-width: 1;
+}
+.danger-icon {
+  -fx-font-size: 20px;
+}
+
+/* ---------- 导航部分 ---------- */
+.nav-section {
+  -fx-padding: 10 0 0 0;
+}
+.nav-section-title {
+  -fx-text-fill: -text-secondary;
+  -fx-font-size: 13px;
+  -fx-padding: 8 0;
+}
+.nav-grid {
+  -fx-hgap: 10;
+  -fx-vgap: 10;
+}
+.nav-card {
+  -fx-background-color: linear-gradient(to bottom right, rgba(18,36,44,0.96), rgba(24,43,57,0.90));
+  -fx-background-radius: 18;
+  -fx-padding: 16 18;
+  -fx-border-color: rgba(182,166,224,0.10);
+  -fx-border-radius: 18;
+  -fx-border-width: 1;
+  -fx-text-fill: -text-primary;
+  -fx-font-size: 14px;
+  -fx-font-weight: 600;
+  -fx-cursor: hand;
+  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.22), 16, 0.18, 0, 6);
+}
+.nav-card:hover {
+  -fx-background-color: linear-gradient(to bottom right, rgba(22,48,58,0.98), rgba(46,31,64,0.92));
+  -fx-border-color: -accent-lavender;
+  -fx-translate-y: -2;
+  -fx-effect: dropshadow(three-pass-box, rgba(108,128,255,0.24), 24, 0.26, 0, 10);
+}
+
+.response-card {
+  -fx-background-color: linear-gradient(to bottom right, rgba(18,36,44,0.96), rgba(24,43,57,0.92));
+  -fx-background-radius: 22;
+  -fx-padding: 18 20 18 20;
+  -fx-spacing: 10;
+  -fx-border-color: rgba(182,166,224,0.12);
+  -fx-border-radius: 22;
+  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.28), 22, 0.22, 0, 8);
+}
+.response-icon {
+  -fx-font-size: 24px;
+}
+.style-label {
+  -fx-text-fill: white;
+  -fx-font-size: 12px;
+  -fx-font-weight: 700;
+  -fx-padding: 6 12;
+  -fx-background-radius: 999;
+  -fx-background-color: linear-gradient(to right, #6f8cff, #8c63ff);
+  -fx-effect: dropshadow(three-pass-box, rgba(108,128,255,0.20), 12, 0.2, 0, 4);
+}
+.style-label.gentle {
+  -fx-background-color: linear-gradient(to right, #2DD4BF, #06B6D4);
+}
+.style-label.sharp {
+  -fx-background-color: linear-gradient(to right, #F87171, #FB923C);
+}
+
+/* ---------- 情绪胶囊 ---------- */
+.capsule-card {
+  -fx-background-color: linear-gradient(to bottom right, rgba(18,38,51,0.96), rgba(22,46,62,0.92));
+  -fx-background-radius: 18;
+  -fx-padding: 16;
+  -fx-border-color: rgba(167,139,250,0.12);
+  -fx-border-radius: 18;
+  -fx-border-width: 1;
+  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.22), 16, 0.18, 0, 6);
+}
+.capsule-icon {
+  -fx-font-size: 18px;
+}
+.capsule-emotion {
+  -fx-text-fill: -text-primary;
+  -fx-font-size: 14px;
+  -fx-font-weight: 600;
+}
+.capsule-stress {
+  -fx-text-fill: -text-secondary;
+  -fx-font-size: 12px;
+}
+.capsule-date {
+  -fx-text-fill: -text-tertiary;
+  -fx-font-size: 12px;
+  -fx-font-family: 'Cascadia Mono', 'JetBrains Mono', 'Consolas', monospace;
+}
+.capsule-open-time-unlocked {
+  -fx-text-fill: -accent-teal;
+  -fx-font-size: 13px;
+  -fx-font-weight: 500;
+}
+.capsule-open-time-locked {
+  -fx-text-fill: -text-secondary;
+  -fx-font-size: 12px;
+}
+.capsule-action-button {
+  -fx-background-color: linear-gradient(to bottom right, #6f8cff 0%, #8c63ff 52%, #e06cf7 100%);
+  -fx-text-fill: white;
+  -fx-font-size: 13px;
+  -fx-font-weight: 600;
+  -fx-padding: 8 16;
+  -fx-background-radius: 12;
+  -fx-cursor: hand;
+}
+.capsule-action-button:hover {
+  -fx-translate-y: -1;
+  -fx-effect: dropshadow(three-pass-box, rgba(108,128,255,0.34), 16, 0.24, 0, 6);
+}
+.capsule-action-button-disabled {
+  -fx-background-color: -bg-panel-alt;
+  -fx-text-fill: -text-tertiary;
+  -fx-font-size: 13px;
+  -fx-padding: 8 16;
+  -fx-background-radius: 12;
+}
+
+/* ---------- 胶囊详情弹窗 ---------- */
+.capsule-detail {
+  -fx-background-color: linear-gradient(to bottom right, #08131d 0%, #111b2f 40%, #1c1730 72%, #1a1324 100%);
+}
+.capsule-detail-title {
+  -fx-text-fill: -text-primary;
+  -fx-font-size: 20px;
+  -fx-font-weight: 800;
+  -fx-alignment: CENTER;
+}
+.capsule-unlocking {
+  -fx-text-fill: -accent-lavender;
+  -fx-font-size: 14px;
+  -fx-alignment: CENTER;
+  -fx-padding: 10;
+}
+.capsule-section {
+  -fx-background-color: rgba(18,36,44,0.9);
+  -fx-background-radius: 12;
+  -fx-padding: 14;
+  -fx-border-color: rgba(182,166,224,0.1);
+  -fx-border-radius: 12;
+  -fx-border-width: 1;
+}
+.capsule-section-title {
+  -fx-text-fill: -text-primary;
+  -fx-font-size: 14px;
+  -fx-font-weight: 600;
+  -fx-padding: 0 0 6 0;
+}
+.capsule-section-text {
+  -fx-background-color: transparent;
+  -fx-text-fill: -text-primary;
+  -fx-font-size: 14px;
+  -fx-wrap-text: true;
+  -fx-focus-traversable: false;
+}
+.capsule-advice {
+  -fx-text-fill: -text-secondary;
+  -fx-font-size: 13px;
+  -fx-wrap-text: true;
+}
+.capsule-review {
+  -fx-text-fill: -accent-teal;
+  -fx-font-size: 15px;
+  -fx-font-weight: 500;
+  -fx-wrap-text: true;
+  -fx-line-spacing: 4px;
+}
+
+/* ---------- 情绪文章推荐 ---------- */
+.mood-input-section {
+  -fx-background-color: linear-gradient(to bottom right, rgba(18,38,51,0.96), rgba(22,46,62,0.92));
+  -fx-background-radius: 16;
+  -fx-padding: 20;
+  -fx-border-color: rgba(167,139,250,0.1);
+  -fx-border-radius: 16;
+  -fx-border-width: 1;
+  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.18), 12, 0.16, 0, 4);
+}
+.mood-input-hint {
+  -fx-text-fill: -text-secondary;
+  -fx-font-size: 13px;
+}
+.mood-text-field {
+  -fx-background-color: rgba(10,22,32,0.8);
+  -fx-background-radius: 12;
+  -fx-border-color: rgba(255,255,255,0.08);
+  -fx-border-radius: 12;
+  -fx-border-width: 1;
+  -fx-padding: 10 14;
+  -fx-font-size: 13px;
+  -fx-text-fill: -text-primary;
+  -fx-prompt-text-fill: -text-tertiary;
+  -fx-min-height: 40;
+  -fx-max-width: infinity;
+  -fx-hgrow: always;
+}
+.mood-text-field:focused {
+  -fx-border-color: -accent-teal;
+  -fx-effect: dropshadow(three-pass-box, rgba(45,212,191,0.2), 8, 0.1, 0, 0);
+}
+.mood-analyze-button {
+  -fx-background-color: linear-gradient(to bottom right, #2DD4BF 0%, #A78BFA 100%);
+  -fx-text-fill: white;
+  -fx-font-size: 13px;
+  -fx-font-weight: 600;
+  -fx-padding: 10 20;
+  -fx-background-radius: 12;
+  -fx-cursor: hand;
+  -fx-min-height: 40;
+}
+.mood-analyze-button:hover {
+  -fx-effect: dropshadow(three-pass-box, rgba(45,212,191,0.3), 12, 0.2, 0, 4);
+  -fx-translate-y: -1;
+}
+.mood-analyze-button:disabled {
+  -fx-opacity: 0.6;
+  -fx-cursor: wait;
+}
+.mood-result-label {
+  -fx-font-size: 13px;
+  -fx-wrap-text: true;
+}
+.mood-result-hint {
+  -fx-text-fill: -text-tertiary;
+}
+.mood-result-analyzing {
+  -fx-text-fill: -accent-lavender;
+}
+.mood-result-success {
+  -fx-text-fill: -accent-teal;
+  -fx-font-weight: 500;
+}
+.mood-result-error {
+  -fx-text-fill: #ff7f7d;
+}
+.tag-filter-section {
+  -fx-padding: 0;
+}
+.tag-button {
+  -fx-background-color: rgba(18,36,44,0.9);
+  -fx-text-fill: -text-secondary;
+  -fx-font-size: 13px;
+  -fx-padding: 6 14;
+  -fx-background-radius: 20;
+  -fx-border-color: rgba(182,166,224,0.15);
+  -fx-border-radius: 20;
+  -fx-border-width: 1;
+  -fx-cursor: hand;
+}
+.tag-button:hover {
+  -fx-background-color: rgba(182,166,224,0.08);
+  -fx-border-color: rgba(182,166,224,0.25);
+}
+.tag-button-active {
+  -fx-background-color: linear-gradient(to bottom right, #6f8cff 0%, #8c63ff 100%);
+  -fx-text-fill: white;
+  -fx-border-color: transparent;
+}
+.tag-button-generate {
+  -fx-background-color: linear-gradient(to bottom right, #2ECC71 0%, #9B59B6 100%);
+  -fx-text-fill: white;
+}
+.tag-button-external {
+  -fx-background-color: linear-gradient(to bottom right, #3B82F6 0%, #06B6D4 100%);
+  -fx-text-fill: white;
+}
+
+.article-card {
+  -fx-background-color: linear-gradient(to bottom right, rgba(18,38,51,0.96), rgba(22,46,62,0.92));
+  -fx-background-radius: 16;
+  -fx-padding: 16;
+  -fx-border-color: rgba(167,139,250,0.1);
+  -fx-border-radius: 16;
+  -fx-border-width: 1;
+  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.18), 12, 0.16, 0, 4);
+}
+.article-card:hover {
+  -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.25), 16, 0.2, 0, 6);
+  -fx-translate-y: -1;
+}
+.article-icon {
+  -fx-font-size: 28px;
+}
+.article-title {
+  -fx-text-fill: -text-primary;
+  -fx-font-size: 16px;
+  -fx-font-weight: 700;
+}
+.article-summary {
+  -fx-text-fill: -text-secondary;
+  -fx-font-size: 13px;
+  -fx-wrap-text: true;
+}
+.article-read-button {
+  -fx-background-color: rgba(182,166,224,0.1);
+  -fx-text-fill: -accent-lavender;
+  -fx-font-size: 12px;
+  -fx-font-weight: 600;
+  -fx-padding: 6 12;
+  -fx-background-radius: 10;
+  -fx-cursor: hand;
+}
+.article-read-button:hover {
+  -fx-background-color: rgba(182,166,224,0.18);
+}
+.article-tag {
+  -fx-background-color: rgba(107,140,255,0.15);
+  -fx-text-fill: #7a9cff;
+  -fx-font-size: 11px;
+  -fx-padding: 3 10;
+  -fx-background-radius: 8;
+}
+.article-category {
+  -fx-background-color: rgba(45,212,191,0.15);
+  -fx-text-fill: -accent-teal;
+  -fx-font-size: 11px;
+  -fx-padding: 3 10;
+  -fx-background-radius: 8;
+}
+
+/* ---------- 文章详情弹窗 ---------- */
+.article-detail {
+  -fx-background-color: linear-gradient(to bottom right, #071320 0%, #0C1A2E 42%, #161528 72%, #0F1020 100%);
+}
+.article-detail-icon {
+  -fx-font-size: 40px;
+}
+.article-detail-title {
+  -fx-text-fill: -text-primary;
+  -fx-font-size: 20px;
+  -fx-font-weight: 800;
+}
+.article-detail-meta {
+  -fx-text-fill: -text-secondary;
+  -fx-font-size: 13px;
+}
+.article-detail-content {
+  -fx-background-color: rgba(18,36,44,0.9);
+  -fx-text-fill: -text-primary;
+  -fx-font-size: 14px;
+  -fx-wrap-text: true;
+  -fx-focus-traversable: false;
+  -fx-font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif;
+  -fx-line-spacing: 6px;
+}

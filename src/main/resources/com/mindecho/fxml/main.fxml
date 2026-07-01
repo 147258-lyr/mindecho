@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ScrollPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mindecho.controller.MainController">
+    <left>
+        <VBox styleClass="sidebar" spacing="8">
+            <VBox spacing="2" styleClass="sidebar-header">
+                <Label styleClass="sidebar-title" text="MindEcho" />
+                <Label styleClass="sidebar-subtitle" text="智愈心海" />
+            </VBox>
+            <VBox spacing="6" styleClass="sidebar-section">
+                <Label styleClass="sidebar-section-title" text="导航" />
+                <Button disable="true" styleClass="nav-item nav-item-active" text="🏠 主页" />
+                <Button onAction="#goToScratch" styleClass="nav-item" text="💊 情绪胶囊" />
+                <Button onAction="#goToReport" styleClass="nav-item" text="📊 情绪报告" />
+                <Button onAction="#goToTrash" styleClass="nav-item" text="📚 情绪文章" />
+                <Button onAction="#goToSettings" styleClass="nav-item" text="⚙ 设置" />
+            </VBox>
+        </VBox>
+    </left>
+    <center>
+        <ScrollPane fitToWidth="true" pannable="true" styleClass="content-scroll">
+            <content>
+                <VBox styleClass="content-area" spacing="18">
+                    <VBox fx:id="weatherContainer" alignment="CENTER" spacing="10" styleClass="weather-card">
+                        <Label fx:id="weatherLabel" styleClass="weather-icon" text="☀️" />
+                        <Label styleClass="weather-title" text="当前心情天气" />
+                        <Label styleClass="weather-desc" text="你的心情正在变得明朗" />
+                    </VBox>
+
+                    <VBox alignment="CENTER" spacing="10" styleClass="main-card">
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <Label styleClass="card-icon" text="💭" />
+                            <Label styleClass="card-title" text="倾诉心声" />
+                        </HBox>
+                        <TextArea fx:id="inputTextArea" prefHeight="150.0" promptText="把你的烦恼、压力、不开心...全部写在这里..." styleClass="input-area" wrapText="true" />
+                        <Button fx:id="shredButton" onAction="#handleShred" styleClass="primary-button" text="粉碎并释放 💥" />
+                    </VBox>
+
+                    <StackPane fx:id="animationContainer" prefHeight="110" />
+
+                    <VBox fx:id="responseBox" alignment="CENTER" spacing="15" styleClass="response-card" visible="false">
+                        <HBox alignment="CENTER" spacing="10">
+                            <Label styleClass="response-icon" text="🤖" />
+                            <Label fx:id="styleLabel" styleClass="style-label" text="温柔治愈" />
+                        </HBox>
+                        <Label fx:id="responseText" styleClass="response-text" wrapText="true" />
+                    </VBox>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+</BorderPane>

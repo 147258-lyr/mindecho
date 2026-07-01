@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mindecho.controller.TrashController">
+    <left>
+        <VBox styleClass="sidebar" spacing="8">
+            <VBox spacing="2" styleClass="sidebar-header">
+                <Label styleClass="sidebar-title" text="MindEcho" />
+                <Label styleClass="sidebar-subtitle" text="智愈心海" />
+            </VBox>
+            <VBox spacing="6" styleClass="sidebar-section">
+                <Label styleClass="sidebar-section-title" text="导航" />
+                <Button onAction="#goToMain" styleClass="nav-item" text="🏠 主页" />
+                <Button onAction="#goToScratch" styleClass="nav-item" text="💊 情绪胶囊" />
+                <Button onAction="#goToReport" styleClass="nav-item" text="📊 情绪报告" />
+                <Button disable="true" styleClass="nav-item nav-item-active" text="📚 情绪文章" />
+                <Button onAction="#goToSettings" styleClass="nav-item" text="⚙ 设置" />
+            </VBox>
+        </VBox>
+    </left>
+    <center>
+        <ScrollPane fitToWidth="true" pannable="true" styleClass="content-scroll">
+            <content>
+                <VBox styleClass="content-area" spacing="20">
+                    <VBox alignment="CENTER" spacing="10">
+                        <Label styleClass="page-icon" text="📚" />
+                        <Label styleClass="page-title" text="情绪释放文章" />
+                        <Label styleClass="page-subtitle" text="在这里找到属于你的治愈文字" />
+                    </VBox>
+
+                    <VBox styleClass="mood-input-section" spacing="10">
+                        <Label styleClass="card-title" text="🔍 AI 心情识别" />
+                        <Label styleClass="mood-input-hint" text="写下你此刻的心情，AI 将为你推荐最适合的文章" />
+                        <HBox spacing="10">
+                            <TextField fx:id="moodInputField" promptText="例如：今天工作压力好大，感觉有点焦虑..." styleClass="mood-text-field" />
+                            <Button fx:id="moodAnalyzeButton" onAction="#analyzeMood" styleClass="mood-analyze-button" text="✨ 分析心情" />
+                        </HBox>
+                        <Label fx:id="moodResultLabel" styleClass="mood-result-label" text="" />
+                    </VBox>
+
+                    <VBox styleClass="tag-filter-section" spacing="8">
+                        <Label styleClass="card-title" text="选择主题" />
+                        <HBox fx:id="tagButtons" spacing="8" />
+                    </VBox>
+
+                    <VBox fx:id="articleList" spacing="12" />
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+</BorderPane>
